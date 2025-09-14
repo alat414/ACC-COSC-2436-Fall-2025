@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string.h>
 /*
 int& GetValue()
 {
@@ -36,7 +37,7 @@ int main()
 }  
 
 */
-class string
+class String
 {
     public:
        String() = default;
@@ -55,7 +56,7 @@ class string
             m_Data = new char[m_Size];
             memcpy(m_Data, other.m_Data, m_Size);
        }
-       
+       /*
        String(String&& other) noexcept
        {
             printf("Moved!\n");
@@ -65,7 +66,7 @@ class string
             other.m_Size = 0;
             other.m_Size = nullptr;
        }
-
+    */
        ~String()
        {
             printf("Deleted!\n");
@@ -81,6 +82,30 @@ class string
             printf("\n");
        }
     private:
-        char* = m_Data;
+        char* m_Data;
         uint32_t m_Size;
+};
+
+class Entity
+{
+    public:
+        Entity(const String& name)
+            : m_Name(name)
+        {
+
+        }
+        void Print()
+        {
+            m_Name.Print();
+        }
+    private:
+        String m_Name;
+
+};
+
+int main()
+{
+    Entity entity("Gustavo");
+
+    std::cin.get();
 }
