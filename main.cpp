@@ -32,5 +32,5 @@ int main()
     PrintName(firstName + lastName);
 
     std::cin.get();
-    return 0;
+    
 }   
