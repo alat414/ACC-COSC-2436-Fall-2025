@@ -106,6 +106,7 @@ class Entity
 int main()
 {
     Entity entity("Gustavo");
+    entity.Print();
 
     std::cin.get();
 }
