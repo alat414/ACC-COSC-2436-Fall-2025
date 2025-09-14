@@ -12,7 +12,19 @@ int main()
     GetValue() = 7;
 }
     */
-int main() {
-    std::cout << "Hello, Gustavo !" << std::endl;
+
+void PrintName(std:: string& name)
+{
+    std::cout << name << std::endl;
+}
+int main() 
+{
+    std::string firstName = "Gustavo";
+    std::string lastName = "Alatriste";
+
+    std::string fullName = firstName + lastName;
+
+    PrintName(fullName);
+
     return 0;
 }   
