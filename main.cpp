@@ -13,7 +13,7 @@ int main()
 }
     */
 
-void PrintName(std:: string& name)
+void PrintName(std:: string&& name)
 {
     std::cout << name << std::endl;
 }
