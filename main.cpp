@@ -13,6 +13,10 @@ int main()
 }
     */
 
+void PrintName(const std:: string& name)
+{
+    std::cout << name << std::endl;
+}
 void PrintName(std:: string&& name)
 {
     std::cout << name << std::endl;
@@ -25,6 +29,8 @@ int main()
     std::string fullName = firstName + lastName;
 
     PrintName(fullName);
+    PrintName(firstName + lastName);
 
+    std::cin.get();
     return 0;
 }   
