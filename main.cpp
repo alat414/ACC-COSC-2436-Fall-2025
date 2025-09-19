@@ -48,7 +48,7 @@ class Entity
         {
         }
         
-        void Print()
+        void PrintName()
         {
             m_Name.Print();
         }
@@ -60,6 +60,6 @@ class Entity
 int main()
 {
     Entity entity(String("Gustavo"));
-    entity.Print();
+    entity.PrintName();
     std::cin.get();
 }   
