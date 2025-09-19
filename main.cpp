@@ -25,7 +25,7 @@ class String
             delete m_Data;
         }
 
-        void PrintName()
+        void Print()
         {
             for (uint32_t i = 0; i < m_Size; i++)
             {
@@ -48,9 +48,9 @@ class Entity
         {
         }
         
-        void PrintName()
+        void Print()
         {
-            m_Name.PrintName();
+            m_Name.Print();
         }
     private:
         String m_Name;
@@ -60,6 +60,6 @@ class Entity
 int main()
 {
     Entity entity(String("Gustavo"));
-    entity.PrintName();
+    entity.Print();
     std::cin.get();
-}
+}   
