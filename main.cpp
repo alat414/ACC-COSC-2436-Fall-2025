@@ -1,6 +1,6 @@
 #include <iostream>
 #include <cstring>
-
+#include <string>
 class String
 {
     public:
@@ -20,7 +20,7 @@ class String
             memcpy(m_Data, other.m_Data, m_Size);     
         }
 
-        String (String && other) noexcept
+        String(String && other) noexcept
         {
             printf("Moved!\n");
             m_Size = other.m_Size;
@@ -28,6 +28,23 @@ class String
 
             other.m_Size = 0;
             other.m_Data = nullptr;
+        }
+
+        String& operator=(String&& other) noexcept
+        {
+            printf("Moved!\n");
+
+            if(this!= &other)
+            {
+                delete[] m_Data;
+                m_Size = other.m_Size;
+                m_Data = other.m_Data;
+
+                other.m_Size = 0;
+                other.m_Data = nullptr;
+            }
+
+            return *this;
         }
         ~String()
         {
@@ -74,5 +91,17 @@ int main()
 {
     Entity entity(String("Gustavo"));
     entity.PrintName();
+
+    String orange = "Orange";
+    String dest;
+
+    orange.Print();
+    dest.Print();
+
+    dest = std::move(orange);
+
+    orange.Print();
+    dest.Print();
+
     std::cin.get();
 }   
