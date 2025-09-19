@@ -87,7 +87,7 @@ class String
        ~String()
        {
             printf("Deleted!\n");
-            delete m_Data;
+            delete[] m_Data;
        }
 
        void Print()
@@ -137,7 +137,7 @@ int main()
     dest.Print(); 
 
     dest = std::move(orange);
-    
+
     orange.Print();
     dest.Print();
 
