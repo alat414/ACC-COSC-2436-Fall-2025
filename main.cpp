@@ -1,13 +1,16 @@
 #include <iostream>
 #include <cstring>
 #include <string>
+
 class String
 {
     public:
+        // Default constructor
         String() : m_Data(nullptr), m_Size(0) 
         {
 
         }
+        // Creating string value
         String(const char* string)
         {
             printf("Created!\n");
@@ -16,6 +19,7 @@ class String
             memcpy(m_Data, string, m_Size);
             m_Data[m_Size] = '\0';
         }
+        // Copying string value
         String(const String& other)
         {
             printf("Copied!\n");
@@ -23,7 +27,7 @@ class String
             m_Data = new char[m_Size + 1];
             memcpy(m_Data, other.m_Data, m_Size + 1);     
         }
-
+        // Moving string value to a different location
         String(String && other) noexcept
         {
             printf("Moved!\n");
@@ -33,7 +37,7 @@ class String
             other.m_Size = 0;
             other.m_Data = nullptr;
         }
-
+        // Temporary location for moved string value
         String& operator=(String&& other) noexcept
         {
             printf("Moved!\n");
@@ -50,12 +54,13 @@ class String
 
             return *this;
         }
+        // Destructor for string value previously used.
         ~String()
         {
             printf("Deleted!\n");
             delete[] m_Data;
         }
-
+        // Print statement for string value
         void Print()
         {
             if (m_Data)
