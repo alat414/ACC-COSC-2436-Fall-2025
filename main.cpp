@@ -89,8 +89,8 @@ class Entity
 
 int main()
 {
-    Entity entity(String("Gustavo"));
-    entity.PrintName();
+    //Entity entity(String("Gustavo"));
+    //entity.PrintName();
 
     String orange = "Orange";
     String dest;
