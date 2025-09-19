@@ -67,7 +67,7 @@ class String
             other.m_Data = nullptr;
        }
 
-       String& operator = (String&& other) noexcept
+       String& operator=(String&& other) noexcept
        {
             printf("Moved!\n");
 
@@ -116,7 +116,7 @@ class Entity
         {
 
         }
-        void Print()
+        void PrintName()
         {
             m_Name.Print();
         }
@@ -128,17 +128,20 @@ class Entity
 int main()
 {
     Entity entity("Gustavo");
-    entity.Print();
+    entity.PrintName();
 
-    String string = "Good Afternoon";
+    String orange = "Good Afternoon";
     String dest;
 
-    string.Print();
+    orange.Print();
     dest.Print(); 
 
-    dest = std::move(string);
-    string.Print();
-    dest.Print();
+    dest = std::move(orange);
     
+    orange.Print();
+    dest.Print();
+
     std::cin.get();
+
+    return 0;   
 }
