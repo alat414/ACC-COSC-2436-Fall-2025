@@ -58,7 +58,7 @@ class Entity
         {
         }
         Entity(String&& name)
-            : m_Name(name)
+            : m_Name((String&&)name)
         {
         }
         
