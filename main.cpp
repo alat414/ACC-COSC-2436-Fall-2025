@@ -4,20 +4,24 @@
 class String
 {
     public:
-        String() = default;
+        String() : m_Data(nullptr), m_Size(0) 
+        {
+
+        }
         String(const char* string)
         {
             printf("Created!\n");
             m_Size = strlen(string);
-            m_Data = new char[m_Size];
+            m_Data = new char[m_Size + 1];
             memcpy(m_Data, string, m_Size);
+            m_Data[m_Size] = '\0';
         }
         String(const String& other)
         {
             printf("Copied!\n");
             m_Size = other.m_Size;
-            m_Data = new char[m_Size];
-            memcpy(m_Data, other.m_Data, m_Size);     
+            m_Data = new char[m_Size + 1];
+            memcpy(m_Data, other.m_Data, m_Size + 1);     
         }
 
         String(String && other) noexcept
@@ -54,11 +58,15 @@ class String
 
         void Print()
         {
-            for (uint32_t i = 0; i < m_Size; i++)
+            if (m_Data)
             {
-                printf("%c", m_Data[i]);
+                for (uint32_t i = 0; i < m_Size; i++)
+                {
+                    printf("%c", m_Data[i]);
+                }
             }
             printf("\n");
+
         }
     private:
     
