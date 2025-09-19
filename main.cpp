@@ -21,6 +21,7 @@ class String
         }
         ~String()
         {
+            printf("Deleted!\n");
             delete m_Data;
         }
 
