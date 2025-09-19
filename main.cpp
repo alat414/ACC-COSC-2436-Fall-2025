@@ -66,6 +66,24 @@ class String
             other.m_Size = 0;
             other.m_Data = nullptr;
        }
+
+       String& operator = (String&& other) noexcept
+       {
+            printf("Moved!\n");
+
+            if (this != &other)
+            {
+                delete[] m_Data;
+
+                m_Size = other.m_Size;
+                m_Data = other.m_Data;
+           
+                other.m_Size = 0;
+                other.m_Data = nullptr;
+            }
+
+            return *this;
+       }
        ~String()
        {
             printf("Deleted!\n");
@@ -112,5 +130,15 @@ int main()
     Entity entity("Gustavo");
     entity.Print();
 
+    String string = "Good Afternoon";
+    String dest;
+
+    string.Print();
+    dest.Print(); 
+
+    dest = std::move(string);
+    string.Print();
+    dest.Print();
+    
     std::cin.get();
 }
