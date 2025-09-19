@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string.h>
 #include <cstring>
 
 class String
@@ -15,7 +16,6 @@ class String
         ~String()
         {
             delete m_Data;
-
         }
     private:
     
@@ -35,3 +35,9 @@ class Entity
         String m_Name;
 
 };
+
+int main()
+{
+    Entity entity(String("Gustavo"));
+    std::cin.get();
+}
