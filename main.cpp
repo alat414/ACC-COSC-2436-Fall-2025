@@ -19,6 +19,16 @@ class String
             m_Data = new char[m_Size];
             memcpy(m_Data, other.m_Data, m_Size);     
         }
+
+        String (String && other) noexcept
+        {
+            printf("Moved!\n");
+            m_Size = other.m_Size;
+            m_Data = other.m_Data;
+
+            other.m_Size = 0;
+            other.m_Data = nullptr;
+        }
         ~String()
         {
             printf("Deleted!\n");
@@ -44,6 +54,10 @@ class Entity
 {
     public:
         Entity(const String& name)
+            : m_Name(name)
+        {
+        }
+        Entity(String&& name)
             : m_Name(name)
         {
         }
