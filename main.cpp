@@ -13,9 +13,25 @@ class String
             m_Data = new char[m_Size];
             memcpy(m_Data, string, m_Size);
         }
+        String(const String& other)
+        {
+            printf("Copied!\n");
+            m_Size = other.m_Size;
+            m_Data = other.m_Data;
+            memcpy(m_Data, other.m_Data, m_Size);     
+        }
         ~String()
         {
             delete m_Data;
+        }
+
+        void PrintName()
+        {
+            for (uint32_t i = 0; i < m_Size; i++)
+            {
+                printf("%c", m_Data[i]);
+            }
+            printf("\n");
         }
     private:
     
@@ -31,6 +47,11 @@ class Entity
             : m_Name(name)
         {
         }
+        
+        void PrintName()
+        {
+            m_Name.PrintName();
+        }
     private:
         String m_Name;
 
@@ -39,5 +60,6 @@ class Entity
 int main()
 {
     Entity entity(String("Gustavo"));
+    entity.PrintName();
     std::cin.get();
 }
