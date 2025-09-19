@@ -16,7 +16,7 @@ class String
         {
             printf("Copied!\n");
             m_Size = other.m_Size;
-            m_Data = other.m_Data;
+            m_Data = new char[m_Size];
             memcpy(m_Data, other.m_Data, m_Size);     
         }
         ~String()
@@ -53,7 +53,6 @@ class Entity
         }
     private:
         String m_Name;
-
 };
 
 int main()
