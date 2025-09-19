@@ -49,7 +49,7 @@ class String
         ~String()
         {
             printf("Deleted!\n");
-            delete m_Data;
+            delete[] m_Data;
         }
 
         void Print()
